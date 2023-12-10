@@ -3,13 +3,13 @@
   </div>
 
 
-  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="d-flex  justify-content-center align-items-center " style="height: 100vh;">
     <div
       style="background-color: rgba(255, 253, 253, 0.334); height: 400px; width: 350px; box-shadow: 0px 1px 10px black; border-radius: 15px;">
-      <div class=" d-flex justify-content-center">
+      <div class=" d-flex justify-content-center h-auto d-inline">
 
         <small class="text-center mt-4 "
-          style="font-weight: bold; font-size: 18px; text-decoration: underline; text-shadow: 0px 1px 2px black;">Password
+          style="font-weight: bold; font-size: 18px;   text-shadow: 0px 1px 2px black;">Password
           generator</small>
       </div>
       <div class="container px-xl-3 mt-4">
@@ -34,15 +34,24 @@
         <button type="submit" (click)="generate()" class="btn btn-success btnn w-100"
           style="font-weight: bold; box-shadow: 0px 1px 5px black;">Generate</button>
       </div>
-      <div class="container mt-5 px-xl-3 d-flex">
-        <input type="email" class="form-control" [(ngModel)]="newpassword" id="passwordgenerated"
-          aria-describedby="emailHelp" style="box-shadow: 0px 1px 5px black; " placeholder="Generated password">
+      <ng-container *ngIf="newpassword">
+        <div class="container mt-5 px-xl-3 d-flex justify-content-center  gap-4">
+          <!-- <input type="email" class="form-control" [(ngModel)]="newpassword" id="passwordgenerated"
+            aria-describedby="emailHelp" style="box-shadow: 0px 1px 5px black; " placeholder="Generated password"> -->
 
-        <button type="submit" (click)="copy()" class="cop btn btn-dark ms-1 "
-          style="font-weight: bold; box-shadow: 0px 1px 5px black; ">Copy</button>
-      </div>
+          <div style="font-weight: bold; font-size:x-large; "> {{newpassword}}</div>
 
+          <button type="submit" (click)="copy()" class="cop btn btn-dark ms-1 "
+            style="font-weight: bold; box-shadow: 0px 1px 3px black; ">Copy</button>
+        </div>
+        <p class="container text-center pt-4 " style="font-weight: bold; color: crimson; font-size: small;">
+          <span>note:</span>you can
+          only
+          copy at once
+        </p>
+      </ng-container>
 
     </div>
+
   </div>
 </div>

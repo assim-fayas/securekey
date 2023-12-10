@@ -10,7 +10,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 export class AppComponent {
   constructor(private clipboard: Clipboard) { }
 
-  passwordlength: number = 12
+  passwordlength: number = 6
   small: boolean = false
   capital: boolean = false
   number: boolean = false
@@ -22,6 +22,10 @@ export class AppComponent {
   newpassword: string = ""
 
   generate() {
+    if (this.passwordlength < 6) {
+      alert('The minimume length of the password is 6')
+      return
+    }
     let validcharacter = ''
     if (this.small) {
       validcharacter += this.passsmall
@@ -42,15 +46,18 @@ export class AppComponent {
 
     let password = ""
     for (let i = 0; i < this.passwordlength; i++) {
-      const randomIndex = Math.floor(Math.random() * validcharacter.length);
+      const randomIndex = Math.random() * validcharacter.length;
+
       password += validcharacter.charAt(randomIndex)
     }
     this.newpassword = password
   }
   copy() {
-    const passinput = document.getElementById('passwordgenerated') as HTMLInputElement;
+    let passinput = this.newpassword
     if (passinput) {
-      this.clipboard.copy(passinput.value);
+      this.clipboard.copy(passinput);
+      // passinput = ''
+      // this.newpassword = ''
     }
 
   }

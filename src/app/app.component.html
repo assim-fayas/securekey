@@ -36,19 +36,18 @@
       </div>
       <ng-container *ngIf="newpassword">
         <div class="container mt-5 px-xl-3 d-flex justify-content-center  gap-4">
-          <!-- <input type="email" class="form-control" [(ngModel)]="newpassword" id="passwordgenerated"
-            aria-describedby="emailHelp" style="box-shadow: 0px 1px 5px black; " placeholder="Generated password"> -->
+
 
           <div style="font-weight: bold; font-size:x-large; "> {{newpassword}}</div>
 
           <button type="submit" (click)="copy()" class="cop btn btn-dark ms-1 "
             style="font-weight: bold; box-shadow: 0px 1px 3px black; ">Copy</button>
         </div>
-        <p class="container text-center pt-4 " style="font-weight: bold; color: crimson; font-size: small;">
+        <!-- <p class="container text-center pt-4 " style="font-weight: bold; color: crimson; font-size: small;">
           <span>note:</span>you can
           only
           copy at once
-        </p>
+        </p> -->
       </ng-container>
 
     </div>
